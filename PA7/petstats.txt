@@ -1,0 +1,29 @@
+Store: Fur Get Me Not
+Number of pets: 5
+
+Pet Information Summary Statistics:
+___________________________________
+Count of each animal: 
+        Bird  - 0, Cat   - 2,
+        Dog   - 1, Fish  - 0,
+        Other - 2
+
+Most frequent animal type: Cat
+
+Most days on site: 
+    Name: Jean-Clawed Van Damme
+    Days: 60
+    Type: Cat
+
+Fewest days on site: 
+    Name: Chris P. Bacon
+    Days: 1
+    Type: Other
+
+Average days on site: 23
+
+Pets on site longer than average days on site:
+    Jean-Clawed Van Damme
+    Jack Meower
+
+Pet store list was last modified on 3/23/2021

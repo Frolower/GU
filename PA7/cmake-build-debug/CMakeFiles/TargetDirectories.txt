@@ -1,0 +1,3 @@
+/Users/nikitadubinin/Desktop/CPSC121/PA7/cmake-build-debug/CMakeFiles/PA7.dir
+/Users/nikitadubinin/Desktop/CPSC121/PA7/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikitadubinin/Desktop/CPSC121/PA7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
