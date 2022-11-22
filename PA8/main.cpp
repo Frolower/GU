@@ -1,7 +1,7 @@
 /*
  Name: Nikita Dubinin
  Class: CPCS 121, Fall 2022
- Date: November 20, 2022
+ Date: November 21, 2022
  Programming Assignment: PA8
  Description: Adventure Game
  Notes: -
@@ -9,105 +9,115 @@
 
 #include "header.h"
 
-const int BOARD_SIZE = 10;
-/*
-* ASCII symbols: https://theasciicode.com.ar/extended-ascii-code/block-graphic-
-character-ascii-code-219.html
-* Note: Extended ASCII characters only work on Windows   unicode must be used on 😥
-Linux but then the
-* characters will not work on Windows. 😭
-*/
-void displayBoard(char board[][BOARD_SIZE], int rows, int cols);
-char generateTile(void);
-void initBoard(char board[][BOARD_SIZE], int rows, int cols);
-char menuPrompt(void);
 int main() {
+    char choice = '\n';
     char board[BOARD_SIZE][BOARD_SIZE];
-    char choice = '\0';
+    char currTile = '\n';
+    int playerCurrentInventoryStats[MAX_INVENTORY_SIZE][2];
+    int numPlayerItems = 0;
+    int playerStats[3] = {100 , 50 , 0}; //Health / attack / defense
+    int numCells = BOARD_SIZE * BOARD_SIZE;
+    string inventoryDescription[MAX_INVENTORY_SIZE];
     int gameScore = 0;
+    int currRow = 0;
+    int currCol = 0;
+//    bool isMetalGear = false;
+//    bool isBigBoss = false;
+    bool displayInventory = false;
+//    int diffLevel = 0;
+
 //seed random number generator
+    srand(time(0));
+
 //initialize our game board with randomly generated tiles
-    initBoard(board, BOARD_SIZE, BOARD_SIZE);
-    do
-    {
-        displayBoard(board, BOARD_SIZE, BOARD_SIZE);
-        choice = menuPrompt();
-        switch (choice)
-        {
+    initBoard(board, BOARD_SIZE, BOARD_SIZE , NUM_TILE_TYPES);
+
+    do {
+        currTile = board[currRow][currCol];
+        displayScore(gameScore);
+        displayPlayerStats(playerStats);
+        if (displayInventory) {
+            displayInventoryStats(playerCurrentInventoryStats, inventoryDescription, numPlayerItems);
+        }
+        displayBoardPosition(board, BOARD_SIZE, BOARD_SIZE, currRow, currCol);
+        displayCurrTile(currTile , TILE_NAME);
+        menuPrompt();
+        choice = getValidMovement(currRow , currCol);
+        switch (choice) {
             case 'w':
-//TODO: move up
+                currRow--;
                 break;
             case 's':
-//TODO: move down
+                currRow++;
                 break;
             case 'a':
-//TODO: move left
+                currCol--;
                 break;
             case 'd':
-//TODO: move right
+                currCol++;
                 break;
             case 'i':
-//TODO: display player inventory
+                if (!displayInventory) {
+                    displayInventory = true;
+                } else {
+                    displayInventory = false;
+                }
                 break;
             case 'f':
-//TODO: search a tile
+                if (board[currRow][currCol] != ' ') {
+                    gameScore += 5;
+                    if (rand() % 2 + 1 == 1) {
+                        if (fightMonster(playerStats)) {
+                            gameScore++;
+                            wipeInventory(numPlayerItems);
+                        } else {
+                            cout << "You died!" << endl;
+                            choice = 'q';
+                            break;
+                        }
+                    }
+                    searchForLoot(playerCurrentInventoryStats , inventoryDescription , numPlayerItems , LOOT_LIST_DESCRIPTIONS , LOOT_LIST_VALUES);
+                    updateStats(playerStats, playerCurrentInventoryStats, numPlayerItems);
+                    clearTile(board, currRow, currCol, CLEAR_VALUE);
+                    currTile = CLEAR_VALUE;
+                    numCells--;
+                    pressToContinue();
+                } else {
+                    cout << "You already cleared this place, choose another action" << endl;
+                    pressToContinue();
+                }
                 break;
             case 'c':
-//TODO: clear a tile
+                if (board[currRow][currCol] != ' ') {
+                    gameScore++;
+                    if (rand() % 10 + 1 == 1) {
+                        if (fightMonster(playerStats)) {
+                            gameScore++;
+                            wipeInventory(numPlayerItems);
+                        } else {
+                            cout << "You died!" << endl;
+                            choice = 'q';
+                        }
+                    }
+                    clearTile(board, currRow, currCol, CLEAR_VALUE);
+                    currTile = CLEAR_VALUE;
+                    numCells--;
+                } else {
+                    cout << "You already cleared this place, choose another action" << endl;
+                    pressToContinue();
+                }
                 break;
             default:
                 break;
+        }
+        cls();
+        if (numCells < 1) {
+            cout << "You won!" << endl;
+            choice = 'q';
         }
     } while (choice != 'q');
 //DISPLAY GAME RESULTS
     cout << "Game Over!" << endl;
     cout << "Score: " << gameScore << endl;
     return 0;
-}
-/*
-* TODO: function comment block and implement function definition
-* TODO: replace or modify to include player current position
-*/
-void displayBoard(char board[][BOARD_SIZE], int rows, int cols)
-{
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            cout << board[i][j];
-        }
-        cout << endl;
-    }
-}
-/*
-* TODO: function comment block and implement function definition
-*/
-char generateTile(void)
-{
-    return '~';
-}
-/*
-* TODO: function comment block and implement function definition
-*/
-void initBoard(char board[][BOARD_SIZE], int rows, int cols)
-{
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            board[i][j] = generateTile();
-        }
-    }
-}
-/*
-* TODO: function comment block and implement function definition
-*/
-char menuPrompt(void) {
-    char choice = '\0';
-    cout << "Pick a direction to move in:" << endl;
-    cout << "Directions: w (up), s (down), a (left), d (right) " << endl;
-    cout << "Actions: f (search tile), c (clear tile)" << endl;
-    cout << "Options: i (inventory), q (quit)" << endl;
-    cin >> choice;
-    return choice;
 }
