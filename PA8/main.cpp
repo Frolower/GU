@@ -16,7 +16,7 @@ int main() {
     int playerCurrentInventoryStats[MAX_INVENTORY_SIZE][2];
     int numPlayerItems = 0;
     int playerStats[3] = {100 , 50 , 0}; //Health / attack / defense
-    int numCells = BOARD_SIZE * BOARD_SIZE;
+    int numCells = BOARD_SIZE * BOARD_SIZE; // for finish after clearing all field
     string inventoryDescription[MAX_INVENTORY_SIZE];
     int gameScore = 0;
     int currRow = 0;
@@ -33,16 +33,16 @@ int main() {
     initBoard(board, BOARD_SIZE, BOARD_SIZE , NUM_TILE_TYPES);
 
     do {
-        currTile = board[currRow][currCol];
-        displayScore(gameScore);
-        displayPlayerStats(playerStats);
-        if (displayInventory) {
+        currTile = board[currRow][currCol]; //variable that shows current tile
+        displayScore(gameScore); //your score
+        displayPlayerStats(playerStats); // your stats
+        if (displayInventory) { //if true => show display
             displayInventoryStats(playerCurrentInventoryStats, inventoryDescription, numPlayerItems);
         }
-        displayBoardPosition(board, BOARD_SIZE, BOARD_SIZE, currRow, currCol);
-        displayCurrTile(currTile , TILE_NAME);
-        menuPrompt();
-        choice = getValidMovement(currRow , currCol);
+        displayBoardPosition(board, BOARD_SIZE, BOARD_SIZE, currRow, currCol);// => board with your position
+        displayCurrTile(currTile , TILE_NAME); // display tile and its name
+        menuPrompt(); // menu
+        choice = getValidMovement(currRow , currCol); //if movement valid
         switch (choice) {
             case 'w':
                 currRow--;
@@ -57,20 +57,20 @@ int main() {
                 currCol++;
                 break;
             case 'i':
-                if (!displayInventory) {
+                if (!displayInventory) { // if true - show
                     displayInventory = true;
                 } else {
                     displayInventory = false;
                 }
                 break;
             case 'f':
-                if (board[currRow][currCol] != ' ') {
+                if (board[currRow][currCol] != ' ') { //searching
                     gameScore += 5;
                     if (rand() % 2 + 1 == 1) {
-                        if (fightMonster(playerStats)) {
+                        if (fightMonster(playerStats)) { // if win
                             gameScore++;
-                            wipeInventory(numPlayerItems);
-                        } else {
+                            wipeInventory(numPlayerItems); //wipe inwentory
+                        } else { // game over!
                             cout << "You died!" << endl;
                             choice = 'q';
                             break;
@@ -81,20 +81,18 @@ int main() {
                     clearTile(board, currRow, currCol, CLEAR_VALUE);
                     currTile = CLEAR_VALUE;
                     numCells--;
-                    pressToContinue();
-                } else {
+                } else { //if already cleared
                     cout << "You already cleared this place, choose another action" << endl;
-                    pressToContinue();
                 }
                 break;
-            case 'c':
+            case 'c': //just clearing
                 if (board[currRow][currCol] != ' ') {
                     gameScore++;
                     if (rand() % 10 + 1 == 1) {
-                        if (fightMonster(playerStats)) {
+                        if (fightMonster(playerStats)) {// if win
                             gameScore++;
                             wipeInventory(numPlayerItems);
-                        } else {
+                        } else {// game over
                             cout << "You died!" << endl;
                             choice = 'q';
                         }
@@ -102,16 +100,16 @@ int main() {
                     clearTile(board, currRow, currCol, CLEAR_VALUE);
                     currTile = CLEAR_VALUE;
                     numCells--;
-                } else {
+                } else { //if already cleared
                     cout << "You already cleared this place, choose another action" << endl;
-                    pressToContinue();
                 }
                 break;
             default:
                 break;
         }
-        cls();
-        if (numCells < 1) {
+        pressToContinue(); //maybe working incorrect
+        cls(); //should work but not on mac os
+        if (numCells < 1) {// if all cleared
             cout << "You won!" << endl;
             choice = 'q';
         }
