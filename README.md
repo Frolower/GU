@@ -18,3 +18,13 @@ CPSC121
   
 CPSC122
   my assignments from spring 2023 CPSC 122 class
+
+  PA1 - morse code translator
+  PA2 - analyse of sorting algorythms
+  PA3 - different tasks with pointers
+  PA4 - trucker's statistic with structs
+  PA5 - music library/playlist with dynamic arrays and classes
+  PA6 - music library/playlist with liked list's
+  PA7 - infix to postfix math expressions with stacks and inheritance
+  PA8 - prime numbers finder with doubly linked list's
+  PA9 - different tasks with recoursion
