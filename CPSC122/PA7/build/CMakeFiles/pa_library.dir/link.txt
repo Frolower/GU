@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libpa_library.a CMakeFiles/pa_library.dir/PA7.cpp.o CMakeFiles/pa_library.dir/LinkedList.cpp.o CMakeFiles/pa_library.dir/Stack.cpp.o CMakeFiles/pa_library.dir/Calculator.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libpa_library.a

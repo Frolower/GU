@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -O0 -Wall -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/runTests.dir/Test.cpp.o -o runTests  ../libpa_library.a lib/gtest-1.7.0/libgtest.a lib/gtest-1.7.0/libgtest_main.a lib/gtest-1.7.0/libgtest.a 

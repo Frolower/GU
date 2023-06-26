@@ -1,0 +1,11 @@
+/Users/nikitadubinin/Desktop/PA3/build/CMakeFiles/pa_library.dir
+/Users/nikitadubinin/Desktop/PA3/build/CMakeFiles/runPA3.dir
+/Users/nikitadubinin/Desktop/PA3/build/CMakeFiles/edit_cache.dir
+/Users/nikitadubinin/Desktop/PA3/build/CMakeFiles/rebuild_cache.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/CMakeFiles/runTests.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/CMakeFiles/edit_cache.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/CMakeFiles/rebuild_cache.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/lib/gtest-1.7.0/CMakeFiles/gtest.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/lib/gtest-1.7.0/CMakeFiles/gtest_main.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/lib/gtest-1.7.0/CMakeFiles/edit_cache.dir
+/Users/nikitadubinin/Desktop/PA3/build/test/lib/gtest-1.7.0/CMakeFiles/rebuild_cache.dir

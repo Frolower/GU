@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -O0 -Wall -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/runPA7.dir/Main.cpp.o CMakeFiles/runPA7.dir/PA7.cpp.o CMakeFiles/runPA7.dir/LinkedList.cpp.o CMakeFiles/runPA7.dir/Stack.cpp.o CMakeFiles/runPA7.dir/Calculator.cpp.o -o runPA7 

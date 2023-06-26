@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -O0 -Wall -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/runPA9.dir/Main.cpp.o CMakeFiles/runPA9.dir/PA9.cpp.o CMakeFiles/runPA9.dir/LinkedList.cpp.o -o runPA9 

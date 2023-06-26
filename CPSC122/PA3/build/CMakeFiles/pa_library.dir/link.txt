@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libpa_library.a CMakeFiles/pa_library.dir/PA3.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libpa_library.a

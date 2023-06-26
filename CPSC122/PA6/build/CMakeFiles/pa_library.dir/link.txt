@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libpa_library.a CMakeFiles/pa_library.dir/PA6.cpp.o CMakeFiles/pa_library.dir/Song.cpp.o CMakeFiles/pa_library.dir/SongLibrary.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libpa_library.a
