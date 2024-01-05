@@ -1,8 +1,7 @@
 # GU
 my assignments from Gonzaga University classes
 
-CPSC121
-  my assignments from fall 2022 CPSC 121 class
+CPSC121 - Computer Science
 
   PA0 - hello world
   PA1 - virtual travel assistant
@@ -16,8 +15,7 @@ CPSC121
   PA9 - another gpa calculating
   Final Lab - another pet store summarize
   
-CPSC122
-  my assignments from spring 2023 CPSC 122 class
+CPSC122 - Computer Science 2
 
   PA1 - morse code translator
   PA2 - analyse of sorting algorythms
@@ -28,3 +26,11 @@ CPSC122
   PA7 - infix to postfix math expressions with stacks and inheritance
   PA8 - prime numbers finder with doubly linked list's
   PA9 - different tasks with recoursion
+
+CPSC223 - Algorithms & ADS
+  PA0 - coding basics
+  PA1 - vectors & linked lists comparisons
+  PA2 - sorting algorithms
+  PA3 - binary search tree implementation
+
+  //PA 2&3 made in cooperation with my lab partner

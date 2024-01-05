@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Unit Tests",
+      "setup": "g++ -std=c++11 unit_tests.cpp linked_list.cpp -o unit_tests",
+      "run": "./unit_tests",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Functionality",
+      "setup": "g++ -std=c++11 unit_tests.cpp linked_list.cpp -o outfile",
+      "run": "./outfile",
+      "input": "",
+      "output": "After push_front: 1 2 3 \r\nAfter push_back: 1 2 3 4 5 \r\nAfter pop_front: 2 3 4 5 \r\nAfter pop_back: 2 3 4 \r\nAfter remove: 2 4 \r\nIs list empty? No\r\nList size: 2\r\nAfter clear: \r\nIs list empty? Yes",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
